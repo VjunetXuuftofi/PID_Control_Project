@@ -68,7 +68,7 @@ int main()
           * another PID controller to control the speed!
           */
           json msgJson;
-          if (twiddling && count == 100000) {
+          if (twiddling && count == 500) {
             double this_cte = total_cte / count;
             if (this_cte < best_cte) {
               //deltas[on] /= 2;
@@ -120,7 +120,7 @@ int main()
                   }
                   steer_value = 1;
               }
-            double throttle = -std::abs(cte) + 2.5 - speed/50; // taper throttle at high speeds/cte
+            double throttle = -std::abs(cte)/2 + 1.5 - speed/100; // taper throttle at high speeds/cte
             // DEBUG
             //std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
 
